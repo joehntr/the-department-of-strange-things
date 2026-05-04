@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail - The Department of Strange Things</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .detail-container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .detail-image {
+            width: 100%;
+            border-radius: 8px;
+            background-color: #ddd;
+            aspect-ratio: 1 / 1;
+            margin-bottom: 30px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Work</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="detail-container" id="detailContent">
+            <!-- Content loaded dynamically -->
+        </div>
+
+        <footer>
+            <p>© 2026 The Department of Strange Things</p>
+        </footer>
+    </div>
+
+    <script>
+        // Get project from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+        const projectTitle = urlParams.get('title') || 'Project';
+
+        document.getElementById('detailContent').innerHTML = `
+            <h1>${decodeURIComponent(projectTitle)}</h1>
+            <div class="detail-image" style="background-color: #ccc;"></div>
+            <p>This is where your project description goes.</p>
+            <p>You can add details about the creative process, tools used, client info, etc.</p>
+            <a href="index.html" class="back-link">← Back to all work</a>
+        `;
+    </script>
+</body>
+</html>
