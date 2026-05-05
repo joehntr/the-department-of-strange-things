@@ -63,19 +63,18 @@ nav a:hover {
     color: #999;
 }
 
-/* Masonry Grid Layout */
+/* TRUE MASONRY using CSS Columns */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    column-count: 3;
+    column-gap: 30px;
     margin: 50px 0;
-    align-items: start;
 }
 
 .grid-item {
+    break-inside: avoid;
+    margin-bottom: 30px;
     cursor: pointer;
     transition: transform 0.2s ease;
-    width: 100%;
 }
 
 .grid-item:hover {
@@ -92,15 +91,15 @@ nav a:hover {
 
 /* Different height options */
 .image-container.height-small {
-    aspect-ratio: 1 / 1.4;
+    aspect-ratio: 1 / 1.4;  /* Tall portrait */
 }
 
 .image-container.height-medium {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1;     /* Square */
 }
 
 .image-container.height-large {
-    aspect-ratio: 1 / 0.7;
+    aspect-ratio: 1 / 0.7;   /* Wide landscape */
 }
 
 .placeholder-img {
@@ -234,11 +233,11 @@ footer {
     margin-top: 50px;
 }
 
-/* Responsive */
+/* Responsive Masonry */
 @media (max-width: 768px) {
     .grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        column-count: 2;
+        column-gap: 20px;
     }
     
     nav a {
@@ -253,6 +252,6 @@ footer {
 
 @media (max-width: 480px) {
     .grid {
-        grid-template-columns: 1fr;
+        column-count: 1;
     }
 }
